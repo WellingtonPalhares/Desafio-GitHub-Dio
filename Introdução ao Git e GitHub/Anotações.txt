@@ -1,0 +1,77 @@
+Curso de Git e Github
+Iniciando o Git e criando um commit
+Criando um repositório
+Como os commits tem a informação do autor atrelado a ele, a primeira vez que criarmos um commit, precisaremos configurar o GIT para informar nosso Nome e Email, que serão atrelados ao “AUTOR” dos commits.
+$ git config --global user.email "wellington.palhares1@gmail.com"
+$ git config --global user.name Wellington
+
+Adicionando arquivo na pasta 
+Vamos usar um arquivo Markdown
+Arquivo HTML é o esqueleto de qualquer pagina da wen, markdown é uma forma mais humana de escrever o HTML. Usando “#”. Quanto mais # usadas, mais contida é a informação exemplo:
+#Strogonoff de Frango
+##Ingredientes
+###Cebola, frango, molho de tomate...
+Strogonoff de Frango
+Ingredientes
+Cebola, frango, molho de tomate...
+Para usar negrito: **negrito**
+Para usar itálico: _italico_
+Criando commit
+$ git add *
+$ git commit -m "commit inicial"
+[master (root-commit) 8eba7a9] commit inicial
+ 1 file changed, 20 insertions(+)
+ create mode 100644 strogonoff.md
+
+Comando git status nos diz o tipo de arquivo, se é modificado, não modificado, staged e etc.
+
+$ git status
+
+Criei uma nova pasta
+$ mkdir receitas
+
+Usei o código “mv” para mover o arquivo para essa nova pasta
+$ mv strogonoff.md ./receitas/
+
+Como eu criei uma pasta nova, ela ainda não esta rastreada pelo git, e como eu adicionei o arquivo que era rastreado para esta pasta não rastrada, o arquivo aparece como removi, portanto preciso adicionar o arquivo novamente e a pasta nova:
+$ git add strogonoff.md receitas/
+
+
+Ctrl + L limpa a tela
+
+Agora eu commito as novas alterações
+$ git commit -m "cria pasta receitas, move arquivo para receitas"
+
+Agora vou criar um novo arquivo na pasta
+$ echo > README.md
+
+Adiciono o arquivo ao GIT
+git add *
+o “*” faz com que tudo que está untracked, fique rastreável
+
+Agora commito tudo
+$ git commit -m "adiciona index"
+
+Introdução ao GitHub
+Para checar email que uso no git:
+$ git config --list
+Para alterar o email:
+$ git config –global –unset user.email
+$ git config –global –unset user.name
+Para inserir os dados em um servidor, um diretório remoto, eu vou ao github e pego o link do directório, então uso o seguinte comando no git:
+$ git remote add origin ^[[200~https://github.com/WellingtonPalhares/livro-receitas.git
+
+Para listar os diretórios remotos cadastrados no git, utilizo o:
+$ git remote -v
+
+Para empurrar o código para o remoto utilizo:
+$ git push origin master
+
+GitHub utiliza linguagem Markdown
+Quando faço modificação dentro de um arquivo que já ta no github e tento empurrar pra ele, pode dar um erro, então utilizo
+$ git pull origin master
+Para puxar o conteúdo
+Mudo o que preciso mudar, depois add e commito de novo e dou push pro repositório remoto.
+
+Para baixar (clonar) um código ou repositório na minha máquina, copio o HTTPS do repositório.
+$ git clone URL
